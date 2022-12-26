@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String rev = reverse(str);
+        System.out.println(capitalize(rev));
+    }
+
+    public static String reverse(String s) {
+        // Finding the index of the whitespaces
+        int x = s.indexOf(" ");
+
+        //Base condition
+        if(x == -1)
+            return s;
+
+        //Recursive call
+        return reverse(s.substring(x+1)) +" "+ s.substring(0, x);
+    }
+    //Function to make first letter capital
+    public static String capitalize(String str)
+    {
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
+}
+
+//Input : You are awesome
+//Output : Awesome you are
